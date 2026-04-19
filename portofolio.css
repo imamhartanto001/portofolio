@@ -1,0 +1,518 @@
+/* --- VARIABLE WARNA (TEMA ROBLOX DARK) --- */
+:root {
+    --bg-main: #232527;       /* Hitam/Abu gelap utama */
+    --bg-alt: #393B3D;        /* Abu-abu selang-seling */
+    --card-bg: #4F5459;       /* Warna card & elemen */
+    --text-main: #FFFFFF;     /* Teks putih */
+    --text-muted: #B8B8B8;    /* Teks abu-abu */
+    --accent-blue: #00A2FF;   /* Biru khas Roblox */
+    --accent-hover: #0081CC;  /* Biru saat di-hover */
+    --discord-blurple: #5865F2; /* Biru Discord */
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* --- RESET & DASAR --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+.section {
+    padding: 100px 0;
+}
+
+.bg-main { background-color: var(--bg-main); }
+.bg-alt { background-color: var(--bg-alt); }
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 5px;
+    background: var(--accent-blue);
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+/* --- Navigasi --- */
+#navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(35, 37, 39, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #111;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.logo span {
+    color: var(--accent-blue);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent-blue);
+}
+
+/* --- Menu Toggle (Hamburger) --- */
+.menu-toggle {
+    display: none; /* Tersembunyi di Desktop */
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* --- Responsif Header (Mobile) --- */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%;
+        left: -100%;
+        width: 100%;
+        background-color: var(--bg-main);
+        flex-direction: column;
+        text-align: center;
+        padding: 20px 0;
+        transition: 0.4s;
+        border-bottom: 2px solid var(--accent-blue);
+    }
+
+    .nav-links.active {
+        left: 0;
+    }
+
+    /* Animasi Hamburger jadi X */
+    .menu-toggle.is-active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.is-active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.is-active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+
+    /* Background image */
+    background: 
+        linear-gradient(rgba(35, 37, 39, 0.7), rgba(35, 37, 39, 0.7)), 
+        url('img/hero.png');
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: var(--accent-blue);
+    text-shadow: 0 0 20px rgba(0, 162, 255, 0.3);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin-bottom: 35px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--accent-blue);
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 4px 0px #007bbd; /* Efek tombol 3D ala Roblox */
+}
+
+.btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0px #005f91;
+}
+
+.btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 0px 0px transparent;
+}
+
+/* --- TENTANG SAYA --- */
+.about-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-content p {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+}
+
+/* --- GALERI SECTION --- */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1 / 1;
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: var(--transition);
+    border: 2px solid transparent;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery-item .overlay {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 162, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.gallery-item:hover {
+    transform: scale(1.03);
+    border-color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-item:hover .overlay {
+    opacity: 1;
+}
+
+.overlay i {
+    color: white;
+    font-size: 2rem;
+}
+
+/* --- LIGHTBOX (POP-UP) --- */
+.lightbox {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.95);
+    display: none; /* Dikontrol JS */
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 80vh;
+}
+
+.lightbox-content img {
+    width: 100%;
+    height: auto;
+    max-height: 80vh;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 162, 255, 0.5);
+    border: 3px solid var(--accent-blue);
+}
+
+.close-btn {
+    position: absolute;
+    top: -50px; right: 0;
+    color: white;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+/* Pastikan tombol berada di atas background hitam */
+.prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1); /* Latar tombol transparan */
+    color: white !important; /* Paksa warna putih */
+    border: none;
+    font-size: 30px;
+    padding: 20px;
+    cursor: pointer;
+    z-index: 2100; /* Harus lebih tinggi dari lightbox */
+    border-radius: 5px;
+    transition: 0.3s;
+    display: block !important; /* Pastikan terlihat */
+}
+
+.prev-btn { left: 20px; }
+.next-btn { right: 20px; }
+
+.prev-btn:hover, .next-btn:hover {
+    background: var(--accent-blue);
+    color: white;
+}
+
+/* Pastikan Font Awesome terpanggil (Taruh di atas CSS kamu jika belum ada) */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css');
+
+/* --- TOOLS SECTION --- */
+.tools-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.tool-badge {
+    background-color: var(--bg-main);
+    padding: 15px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 2px solid var(--card-bg);
+    transition: var(--transition);
+}
+
+.tool-badge:hover {
+    border-color: var(--accent-blue);
+    background-color: rgba(0, 162, 255, 0.05);
+    transform: translateY(-5px);
+}
+
+/* --- KONTAK SECTION (DISCORD) --- */
+.contact-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.discord-container {
+    margin-top: 20px;
+}
+
+.discord-card {
+    display: flex;
+    align-items: center;
+    background-color: var(--discord-blurple);
+    color: white;
+    padding: 25px 40px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: 0 10px 0px #3e48a8;
+}
+
+.discord-card i {
+    font-size: 3.5rem;
+    margin-right: 25px;
+}
+
+.discord-info {
+    text-align: left;
+}
+
+.discord-label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
+.discord-name {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.discord-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 13px 0px #313a85;
+}
+
+.discord-card:active {
+    transform: translateY(5px);
+    box-shadow: 0 0px 0px transparent;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    background-color: #1a1c1e;
+}
+
+footer p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* --- RESPONSIVE TABLET & MOBILE --- */
+
+/* Tablet (Max 1024px) */
+@media (max-width: 1024px) {
+    .hero h1 { font-size: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(3, 1fr); } /* 3 Kolom di Tablet */
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+}
+
+/* Mobile (Max 768px) */
+@media (max-width: 768px) {
+    /* Navbar Mobile */
+    .menu-toggle {
+        display: block; /* Munculkan hamburger */
+        cursor: pointer;
+    }
+
+    .menu-toggle .bar {
+        display: block;
+        width: 25px;
+        height: 3px;
+        margin: 5px auto;
+        background-color: white;
+        transition: 0.3s;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        left: -100%; /* Sembunyi di kiri */
+        flex-direction: column;
+        background-color: var(--bg-main);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.3);
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        left: 0; /* Geser ke kanan saat aktif */
+    }
+
+    /* Animasi Hamburger ke X */
+    #mobile-menu.is-active .bar:nth-child(2) { opacity: 0; }
+    #mobile-menu.is-active .bar:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    #mobile-menu.is-active .bar:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Content Mobile */
+    .hero { align-items: center; text-align: center; height: 70vh; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1rem; }
+    
+    .section-title { font-size: 1.8rem; }
+    
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); } /* 2 Kolom di HP */
+    
+    .discord-card {
+        padding: 15px 20px;
+        flex-direction: column; /* Ikon & Nama tumpuk vertikal */
+        gap: 10px;
+    }
+    
+    .discord-card i { margin-right: 0; font-size: 2.5rem; }
+    .discord-info { text-align: center; }
+    .discord-name { font-size: 1.2rem; }
+
+    /* Lightbox Mobile */
+    .lightbox-content img { max-height: 60vh; }
+    .prev-btn, .next-btn { font-size: 25px; padding: 10px; }
+}
+
+/* HP Kecil (Max 480px) */
+@media (max-width: 480px) {
+    .gallery-grid { grid-template-columns: 1fr; } /* 1 Kolom saja */
+    .hero h1 { font-size: 2rem; }
+    .section { padding: 60px 0; }
+}

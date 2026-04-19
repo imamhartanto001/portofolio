@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Saya</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="portofolio.css">
+</head>
+<body>
+
+    <nav id="navbar">
+    <div class="nav-container">
+        <h1 class="logo">L77<span>_Dev</span></h1>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links" id="nav-list">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentang">Tentang Saya</a></li>
+            <li><a href="#galeri">Galeri</a></li>
+            <li><a href="#tools">Tools</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </div>
+</nav>
+
+    <header id="beranda" class="section bg-main">
+        <div class="container hero">
+            <h1>Halo, Saya <span>L77_Dev</span></h1>
+            <p>Saya menyediakan jasa pembuatan map dan environment Roblox dengan standar profesional. Setiap project dikerjakan dengan perhatian pada detail, estetika, dan performa untuk menghasilkan pengalaman bermain yang maksimal.</p>
+            <a href="#galeri" class="btn">Lihat Galeri </a>
+        </div>
+    </header>
+
+    <section id="tentang" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Tentang Saya</h2>
+            <div class="about-content">
+                <p>Saya memiliki pengalaman selama 1 tahun sebagai builder Roblox dan telah menyelesaikan lebih dari 7 project pembuatan map dengan berbagai konsep. Terbiasa mengerjakan pembuatan terrain, environment, dan detail visual secara menyeluruh, saya mengutamakan hasil yang rapi, konsisten, dan memiliki kualitas visual yang kuat tanpa mengabaikan optimasi performa. <br><br>Saya mampu menyesuaikan gaya dan konsep map sesuai kebutuhan, mulai dari yang sederhana hingga kompleks, baik realistis, stylized, maupun tema khusus lainnya. Saya juga terbuka untuk menerima berbagai permintaan konsep dari client dan siap merealisasikan ide menjadi map yang menarik, fungsional, dan siap digunakan dalam game.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeri" class="section bg-main">
+        <div class="container">
+            <h2 class="section-title">Galeri Project</h2>
+            <div class="gallery-grid" id="gallery-grid">
+                <script>
+                    const grid = document.currentScript.parentElement;
+                    for (let i = 1; i <= 16; i++) {
+                        grid.innerHTML += `
+                            <div class="gallery-item" onclick="openLightbox(${i})">
+                                <img src="img/foto${i}.png" alt="Project ${i}" onerror="this.src='https://via.placeholder.com/400x300?text=Foto+${i}'">
+                                <div class="overlay"><i class="fas fa-search-plus"></i></div>
+                            </div>
+                        `;
+                    }
+                </script>
+            </div>
+        </div>
+        <div id="lightbox" class="lightbox">
+    <span class="close-btn" onclick="closeLightbox()">&times;</span>
+    
+    <button class="prev-btn" onclick="changeImage(-1)">
+        <i class="fas fa-chevron-left"></i>
+    </button>
+    
+    <div class="lightbox-content">
+        <img id="lightbox-img" src="" alt="">
+    </div>
+    
+    <button class="next-btn" onclick="changeImage(1)">
+        <i class="fas fa-chevron-right"></i>
+    </button>
+</div>
+    
+    </section>
+
+    <section id="tools" class="section bg-alt">
+        <div class="container">
+            <h2 class="section-title">Tools Yang Digunakan</h2>
+            <div class="tools-grid">
+                <div class="tool-badge">Roblox Studio</div>
+                <div class="tool-badge">Canva</div>
+                <div class="tool-badge">Figma</div>
+            </div>
+        </div>
+    </section>
+
+<section id="kontak" class="section bg-main">
+    <div class="container contact-center">
+        <h2 class="section-title">Kontak Saya</h2>
+        <div class="discord-container">
+            <a href="https://discord.com/users/477800984773394432" target="_blank" class="discord-card">
+                <i class="fab fa-discord"></i>
+                <div class="discord-info">
+                    <span class="discord-label">Add me on Discord</span>
+                    <span class="discord-name">L77_Dev</span>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <p>&copy; 2026 L77_Dev. All rights reserved.</p>
+    </footer>
+
+    <script src="portofolio.js"></script>
+</body>
+</html>
